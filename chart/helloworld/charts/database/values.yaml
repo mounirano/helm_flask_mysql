@@ -1,0 +1,4 @@
+secret:
+  db_root_password: "cGFzc3dvcmQ="
+volume:
+  storage: 2Gi

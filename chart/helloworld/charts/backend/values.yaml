@@ -1,0 +1,5 @@
+image: backendimage:latest
+replicaCount: 1
+service:
+  port: 5000
+  type: LoadBalancer

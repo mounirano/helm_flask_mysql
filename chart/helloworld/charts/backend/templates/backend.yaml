@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "backend.fullname" . }}
+  labels:
+    app: {{ include "backend.fullname" . }}-api
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "backend.fullname" . }}-api
+  template:
+    metadata:
+      labels:
+        app: {{ include "backend.fullname" . }}-api
+    spec:
+      containers:
+        - name: {{ include "backend.fullname" . }}-api
+          image: {{ .Values.image }}
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
