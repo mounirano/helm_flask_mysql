@@ -17,5 +17,15 @@ chmod 700 dockerize.sh
 2- Deploy the app using Helm:
 ```
 cd chart/
-helm install release_name hello_world
+helm install dev hello_world
+```
+
+3- Access the backend service:
+```
+minikube service dev-backend
+```
+
+4- Access the database:
+```
+kubectl run -it --rm --image=mysql --restart=Never mysql-client -- mysql --host mysql --password=password
 ```
